@@ -25,6 +25,15 @@ st.markdown("""
             font-weight: bold;
             margin-top: 20px;
             font-family: 'Arial', sans-serif;
+            background-color: rgba(0, 0, 0, 0.7); /* black background with some transparency */
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .designer-wrapper {
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         .center-title {
@@ -45,13 +54,16 @@ st.markdown("""
         }
     </style>
 
-    <div class="designer">👨‍💻 Designed by Engr. Ozair Khan</div>
+    <div class="designer-wrapper">
+        <div class="designer">👨‍💻 Designed by Engr. Ozair Khan</div>
+    </div>
 
     <div class="center-title">
         <h1>🔍 PESCO Bill Extractor Tool</h1> 
         <p class="dedication">🎓 Dedicated to Engr. Bilal Ahmad</p>
     </div>
 """, unsafe_allow_html=True)
+
 
 # File uploader
 uploaded_file = st.file_uploader("📤 Upload your Excel file", type=["xlsx", "xls"])
