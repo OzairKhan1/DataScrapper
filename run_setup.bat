@@ -1,48 +1,63 @@
 @echo off
+setlocal
 set REPO_URL=https://github.com/OzairKhan1/DataScrapper.git
 set REPO_NAME=DataScrapper
 
-:: Check if Git is installed
-echo Checking if Git is installed...
+echo.
+echo 📥 Checking if Git is installed...
 git --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo Git not found. Installing Git...
-    :: Download and install Git (Windows)
-    curl -o git-installer.exe https://git-scm.com/download/win
+    echo ❌ Git not found. Downloading and installing Git...
+    curl -L -o git-installer.exe https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe
     start /wait git-installer.exe /VERYSILENT /NORESTART
-    echo Git installation completed!
+    echo ✅ Git installation completed.
 ) else (
-    echo Git is already installed.
+    echo ✅ Git is already installed.
 )
 
-:: Clone the repository
-echo Cloning the repository...
+where git >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ❗ Git still not detected. Please restart the command prompt and re-run this file.
+    pause
+    exit /b
+)
+
+echo.
+echo 🔁 Cloning your GitHub repository...
 git clone %REPO_URL%
 cd %REPO_NAME%
 
-:: Download and install Python silently (v3.11.8 example)
-echo Installing Python...
-curl -o python-installer.exe https://www.python.org/ftp/python/3.11.8/python-3.11.8-amd64.exe
-start /wait python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0
+echo.
+echo 🐍 Checking if Python is installed...
+python --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ❌ Python not found. Downloading and installing Python...
+    curl -L -o python-installer.exe https://www.python.org/ftp/python/3.11.8/python-3.11.8-amd64.exe
+    start /wait python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0
+    echo ✅ Python installation completed.
+) else (
+    echo ✅ Python is already installed.
+)
 
-:: Verify Python installation
-echo Verifying Python installation...
-python --version
+where python >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ❗ Python still not detected. Please restart the command prompt and re-run this file.
+    pause
+    exit /b
+)
 
-:: Create virtual environment
-echo Creating virtual environment...
+echo.
+echo ⚙️ Setting up virtual environment...
 python -m venv .venv
-
-:: Activate virtual environment
 call .venv\Scripts\activate
 
-:: Upgrade pip and install required packages
-echo Installing required Python packages...
+echo.
+echo 📦 Installing required Python packages...
 pip install --upgrade pip
 pip install -r requirements.txt
 
-:: Run the Streamlit app
-echo Running the Streamlit app...
+echo.
+echo 🚀 Launching the Streamlit app...
 streamlit run wap10.py
 
 pause
