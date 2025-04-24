@@ -8,7 +8,7 @@ from requests.adapters import HTTPAdapter, Retry
 import matplotlib.pyplot as plt
 
 # Set up Streamlit UI
-st.set_page_config(page_title="🔍 PESCO Bill Extractor", layout="centered")
+st.set_page_config(page_title="🔍 PESCO Bill Id Extractor", layout="centered")
 
 st.markdown("""
     <style>
