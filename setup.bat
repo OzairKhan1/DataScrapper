@@ -51,8 +51,8 @@ pip install --upgrade pip setuptools wheel
 pip install --only-binary=:all: -r requirements.txt
 
 :: STEP 6: Check for app file
-if not exist "wap10.py" (
-    echo ❌ File 'wap10.py' not found in the directory.
+if not exist "DataScrapper.py" (
+    echo ❌ File 'DataScrapper.py' not found in the directory.
     echo Please ensure the file exists or rename your app script.
     pause
     exit /b
