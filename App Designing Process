@@ -1,0 +1,22 @@
+1: Write a code and check it on local host
+2: Make a requirements.txt 
+3: Finally I setup a setup.bat File
+
+
+This setup.bat file cover all the dependency, from updating the powershell, 
+download Github,  cloning the github repository, Python, Upgrading pip, Installing
+all the necessary packages from requiremnets.txt, creating new environenet, checking the app , and finally launching the app. 
+
+
+Execution Process
+1: run this command from Power shell to download the file : Invoke-WebRequest -Uri "https://raw.githubusercontent.com/OzairKhan1/DataScrapper/main/setup.bat" -OutFile "$env:TEMP\setup.bat"
+2: run this command to run the downloaded file From Power shell: Start-Process -FilePath "$env:TEMP\setup.bat" -Wait
+
+
+Creating Run Button using Tkinter: 
+1: The above 2 commands were integrated with tkinter to create a simple "Launching Button" for the App
+2: To make .exe (Window App) run this command on Tkinter Friendsy-GUI.py to make an executable file. The .exe will be available  in dist folder in the same folder where the code locates.
+3: Now the app is ready and can be shared with any one.
+
+
+ 
