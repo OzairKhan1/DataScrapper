@@ -59,7 +59,7 @@ st.markdown("""
     </div>
 
     <div class="center-title">
-        <h1>🔍 PESCO Bill Extractor Tool</h1> 
+        <h1>🔍 PESCO Bill Id Extractor Tool</h1> 
         <p class="dedication">🎓 Dedicated to Engr. Bilal Ahmad</p>
     </div>
 """, unsafe_allow_html=True)
